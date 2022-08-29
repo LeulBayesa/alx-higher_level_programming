@@ -1,21 +1,46 @@
 #include "lists.h"
 
 /**
- * is_palindrome - check if a linked list is a palindrome
- * @head: pointer to head of list
- * Return: 0 or 1
+ * is_palindrome - checks if a linked list
+ * palindrome or not.
+ * @head: pointer to the head of the linked list
+ *
+ * Return: 0 if it is not palindrome and
+ * 1 if it is palindrome.
  */
 int is_palindrome(listint_t **head)
 {
-    const listint_t *current;
-    const listint_t *tail;
-    unsigned int n = 0;
+	int len = 0, half_len = 0, count = 0;
+	listint_t *cur, *prev;
 
-    //Get length
-    //Use a function to get a node on a specific index
-    //check the first to the last and, second to second last ....
-    //return false if one check was False
-    //return true at the end (if all passed the checks)
+	if (head == NULL || *head == NULL)
+		return (1);
+	cur = *head;
+	prev = *head;
 
-    return (n);
+	if (cur->next == NULL)
+		return (1);
+
+	for (; cur != NULL; cur = cur->next, ++len)
+		;
+	half_len = len / 2;
+
+	while ((cur = prev->next) && count < half_len - 1)
+	{
+		prev->next = cur->next;
+		cur->next = *head;
+		*head = cur;
+		count++;
+	}
+
+	if (len % 2 != 0)
+		cur = cur->next;
+
+	for (prev = *head, count = 0; count < half_len && prev->n == cur->n;
+	     prev = prev->next, cur = cur->next, count++)
+		;
+
+	if (cur == NULL)
+		return (1);
+	return (0);
 }
