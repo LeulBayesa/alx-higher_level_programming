@@ -80,7 +80,7 @@ class TestBase_instantiation(unittest.TestCase):
 
     def test_frozenset_id(self):
         self.assertEqual(frozenset({1, 2, 3}), Base(frozenset({1, 2, 3})).id)
-[O
+
     def test_range_id(self):
         self.assertEqual(range(5), Base(range(5)).id)
 
