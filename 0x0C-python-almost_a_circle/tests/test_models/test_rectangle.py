@@ -815,12 +815,12 @@ Unittest classes:
     TestRectangle_update_kwargs - line 676
     TestRectangle_to_dictionary - line 788
 """
+
 import io
 import sys
 import unittest
 from models.base import Base
 from models.rectangle import Rectangle
-
 
 class TestRectangle_instantiation(unittest.TestCase):
     """Unittests for testing instantiation of the Rectangle class."""
